@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1 Streamer
+
+  form(action="/", method="POST")
+       input(type="text", name="streamPath", placeholder="Path to mjpeg stream")
+       button(type="submit") Submit
+
+  ul
+    each val, index in streams
+         li
+             a(href="/show/stream/" + index)= val.mjpegOptions.hostname
+             div stream url: #{"/stream/" + index}
+                
